@@ -7,7 +7,7 @@ public class HktProtoServer : ModuleRules
 	public HktProtoServer(ReadOnlyTargetRules Target) : base(Target)
     {
         PublicIncludePathModuleNames.Add("Launch");
-        PrivateDependencyModuleNames.AddRange( new string[] { "Core", "CoreUObject", "Projects" });
+        PrivateDependencyModuleNames.AddRange( new string[] { "Core", "CoreUObject", "Projects", "HktBase" });
     }
 }
 

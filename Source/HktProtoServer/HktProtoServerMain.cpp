@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CoreMinimal.h"
+#include "HktDef.h"
 #include "HktServer.h"
 #include "RequiredProgramMainCPPInclude.h"
 
@@ -44,12 +45,13 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
 	// GlobalDefinitions.Add("LLM_ENABLED_IN_CONFIG=1");
 	// GlobalDefinitions.Add("UE_MEMORY_TAGS_TRACE_ENABLED=1");
 
+	LogHktRpc.SetVerbosity(ELogVerbosity::VeryVerbose);
+
 	UE_LOG(LogHktProtoServer, Display, TEXT("Starting HktProtoServer..."));
 
 	FHktServer HktServer;
 	const std::string ServerAddress = "0.0.0.0:50051";
-	const size_t ThreadCount = 4;
-	HktServer.Run(ServerAddress, ThreadCount);
+	HktServer.Run(ServerAddress);
 
 	UE_LOG(LogHktProtoServer, Display, TEXT("HktProtoServer running."));
 
